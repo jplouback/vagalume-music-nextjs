@@ -12,7 +12,6 @@ export async function GET (request: NextRequest){
       const req = await fetch(urlGet)
       const resp = await req.json()
 
-      // console.log(paramGreeting)
       const docs = resp.response.docs
 
       return NextResponse.json(docs)
