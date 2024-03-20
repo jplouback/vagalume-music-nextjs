@@ -26,8 +26,6 @@ export const SearchInput = () => {
       const url = `/api/musica?termo=${search}`
       const request = await fetch(url) 
       const data = await request.json() as Musica[]
-      console.log(search)
-      console.log(data)
       setMusicas(data)    
     } else {
       setMusicas([])    
