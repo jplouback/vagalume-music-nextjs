@@ -1,12 +1,14 @@
-export const dynamic = "force-dynamic"
+export const dynamic = "force-static"
 
 // api > hello > [slug] > route.ts
 import {NextRequest, NextResponse} from "next/server";
 
-export async function GET (request: NextRequest){
+// export async function GET (request: NextRequest){
+export async function GET (request: NextRequest, { params }: { params: { termo: string } }){
     try {
-      console.log(request.url)
-      const termo = request.nextUrl.searchParams.get('termo')
+      const termo = params.termo
+      console.log(termo)
+      // const termo = request.nextUrl.searchParams.get('termo')
       const urlGet = `https://api.vagalume.com.br/search.excerpt?q=${termo}`
 
       const req = await fetch(urlGet)
