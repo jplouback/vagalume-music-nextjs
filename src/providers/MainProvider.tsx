@@ -1,4 +1,5 @@
 'use client'
+import { Musica } from '@/app/types/Musica'
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 import { useEffect, createContext, useState } from 'react'
 
@@ -12,7 +13,7 @@ export const MainContext = createContext<ValuesPropsContext>(
 )
 
 export function MainProvider({ children }: PropsWithChildren) {
-  const [musicas, setMusicas] = useState<any[]>([])
+  const [musicas, setMusicas] = useState<Musica[]>([])
   
   const valuesProps: ValuesPropsContext = {
     musicas,

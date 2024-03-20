@@ -1,4 +1,5 @@
 'use client'
+import { MusicGrid } from '@/components/MusicGrid'
 import { Header } from '@/components/header'
 import { MainContext } from '@/providers/MainProvider'
 import Image from 'next/image'
@@ -9,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Header/>
-      {musicas.join(',')}
+      <MusicGrid />
     </div>
   )
 }

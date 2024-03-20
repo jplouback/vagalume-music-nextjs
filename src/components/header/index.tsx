@@ -1,10 +1,6 @@
 import React from 'react'
 import { SearchInput } from '../searchInput'
 
-interface HeaderProps {
-
-}
-
 export const Header = () => {
   
   return (

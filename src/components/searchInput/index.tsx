@@ -1,4 +1,5 @@
 'use client'
+import type { Musica } from '@/app/types/Musica'
 import { MainContext } from '@/providers/MainProvider'
 import React, { FormEvent, useContext } from 'react'
 
@@ -13,7 +14,7 @@ interface SearchInputProps {
 export const SearchInput = () => {
   const { setMusicas } = useContext(MainContext)
 
-  const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handlerSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     
     const form = event.currentTarget
@@ -21,7 +22,17 @@ export const SearchInput = () => {
 
     const search = formElements.search.value
 
-    setMusicas(['abe', 'asd'])
+    if(search) {
+      const url = `/api/musica?termo=${search}`
+      const request = await fetch(url) 
+      const data = await request.json() as Musica[]
+      console.log(search)
+      console.log(data)
+      setMusicas(data)    
+    } else {
+      setMusicas([])    
+    }
+
     
   }
 
