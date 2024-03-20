@@ -20,7 +20,6 @@ export async function GET (request: NextRequest){
       const err = {
         erro: error
       }
-      return err
       return NextResponse.json([err])
     }
 }
