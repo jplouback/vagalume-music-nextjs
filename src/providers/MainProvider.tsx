@@ -4,8 +4,8 @@ import type { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 import { useEffect, createContext, useState } from 'react'
 
 export interface ValuesPropsContext {
-  musicas: any[]
-  setMusicas: Dispatch<SetStateAction<any[]>>
+  musicas: Musica[]
+  setMusicas: Dispatch<SetStateAction<Musica[]>>
 }
 
 export const MainContext = createContext<ValuesPropsContext>(

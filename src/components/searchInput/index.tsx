@@ -1,6 +1,7 @@
 'use client'
 import type { Musica } from '@/app/types/Musica'
 import { MainContext } from '@/providers/MainProvider'
+import { getMusicas } from '@/utils'
 import React, { FormEvent, useContext } from 'react'
 
 type FormItens = {
@@ -23,14 +24,11 @@ export const SearchInput = () => {
     const search = formElements.search.value
 
     if(search) {
-      const url = `/consulta/musica/${search}`
-      const request = await fetch(url) 
-      const data = await request.json() as Musica[]
+      const data = await getMusicas(search)
       setMusicas(data)    
     } else {
       setMusicas([])    
     }
-
     
   }
 
