@@ -23,7 +23,7 @@ export const SearchInput = () => {
     const search = formElements.search.value
 
     if(search) {
-      const url = `/api/musica/${search}`
+      const url = `/consulta/musica/${search}`
       const request = await fetch(url) 
       const data = await request.json() as Musica[]
       setMusicas(data)    
